@@ -1,0 +1,44 @@
+<head>
+
+	<title>The Chaudière Falls Across Time</title>
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+	<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript"></script>
+    </script>
+
+</head>
+
+<body>
+<div id="mapid" style="width: 600px; height: 400px;"></div>
+<script type="text/javascript">
+var map = L.map('map').setView([45.4205, -75.7213],13);
+L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mapbox/streets-v11',
+    tileSize: 512,
+    zoomOffset: -1,
+    accessToken: 'pk.eyJ1Ijoic2FtdWVsbWlja2Vsc29uIiwiYSI6ImNrd3djMzhodjAyOWkyb21rajZuaTQ2dHQifQ.YyxXgsvjPI5SDZuTC9r0lw'
+}).addTo(map);
+
+L.marker(45.4205, -75.7213)
+
+// load a GeoJSON from external file
+$.getJSON("point-data.geojson", function(data) {
+  // add GeoJSON layer to the map once the file is loaded
+  var datalayer = L.geoJson(data ,{
+  onEachFeature: function(feature, featureLayer) {
+  featureLayer.bindPopup(feature.properties.Label);
+  }
+}).addTo(myMap);
+});
+
+</script>
+
+</body>
+</html>
