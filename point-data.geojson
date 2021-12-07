@@ -5,7 +5,7 @@
     "type": "Feature",
     "geometry": {
        "type": "Point",
-       "coordinates":  [-75.72106651323864, 45.420687473311716]
+       "coordinates":  [45.4205, -75.7213]
     },
     "properties": {
     "Label":"Centre of our map!"
@@ -15,7 +15,7 @@
     "type": "Feature",
     "geometry": {
        "type": "Point",
-       "coordinates":  [45.205, -75.7213]
+       "coordinates":  [45.4169, -75.7189]
     },
     "properties": {
     "Label":"Not the centre of the map"
