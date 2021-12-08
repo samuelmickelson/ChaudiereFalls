@@ -1,0 +1,48 @@
+<head>
+
+	<title>The Chaudière Falls Across Time</title>
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+	<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript"></script>
+
+
+</head>
+
+<body>
+<div id="mapid" style="width: 600px; height: 400px;"></div>
+<script type="text/javascript">
+
+  var Chaudière1926 = L.tileLayer('https://mapwarper.net/maps/tile/60665/{z}/{x}/{y}.png'),
+    basemap = L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png')
+
+    var baseMaps = {
+    "Chaudière Falls": basemap
+  };
+
+  var overlayMaps = {
+    "Chaudière Falls 1926": Chaudière1926
+  }
+
+  var myMap = L.map('mapid', {
+  center: [45.4205, -75.7213],
+  zoom: 13,
+  layers:[basemap]
+});
+var marker28= L.marker([45.4205, -75.7213]).addTo(myMap);
+     marker28.bindPopup('<h3>Drummond Central Public School</h3><p>Mississippi Valley Field Naturalists support local schools in creating pollinator gardens as well as monarch butterfly habitats</p><p>1469 Drummond School Rd, Perth, ON K7H 3C8<a href="https://goo.gl/maps/EAd4vaFLH79nAJxs7%22%3E<br>Directions from Google Maps</a><p>').openPopup();
+
+var marker29= L.marker([45.4169,-75.7189]).addTo(myMap);
+	  marker29.bindPopup('<h3>test</h3>').openPopup();
+
+
+L.control.layers(baseMaps, overlayMaps).addTo(myMap);
+
+</script>
+
+</body>
+</html>
