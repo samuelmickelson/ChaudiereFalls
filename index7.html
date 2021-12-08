@@ -77,25 +77,25 @@ var baseMaps = {
 
 // markers
 // Chaudière1926 markers
-var marker1= L.marker([45.4205, -75.7213]).bindPopup('<h3>The Center</h3><p>This is the center of the map.<p>').openPopup();
-var marker2= L.marker([45.4, -75.7]).bindPopup('<h3>Another Marker</h3><p>This marker is a little further away.<p>').openPopup();
+var 1926map_marker_1= L.marker([45.4205, -75.7213]).bindPopup('<h3>The Center</h3><p>This is the center of the map.<p>').openPopup();
+var 1926map_marker_2= L.marker([45.4, -75.7]).bindPopup('<h3>Another Marker</h3><p>This marker is a little further away.<p>').openPopup();
 // Create a layer group to hold the tile map and the markers
 // https://leafletjs.com/examples/layers-control/
-var Chaudière1926LayerGroup = L.layerGroup([Chaudière1926, marker1, marker2]);
+var 1926mapLayerGroup = L.layerGroup([1926map, 1926map_marker_1, 1926map_marker_2]);
 
 // Chaudière1825 markers
 // Good variable naming classification can make this code more readable
-var map1790_marker_1= L.marker([45.395, -75.695]).bindPopup('<h3>1790 place 1</h3><p>Philomon Wright broke his sleigh here.<p>').openPopup();
-var map1790_marker_2= L.marker([45.405, -75.695]).bindPopup('<h3>1790 place 2</h3><p>This site was a dust up with Little James Montferrant and his older brother. James won.<p>').openPopup();
+var 1825map_marker_1= L.marker([45.395, -75.695]).bindPopup('<h3>1790 place 1</h3><p>Philomon Wright broke his sleigh here.<p>').openPopup();
+var 1825map_marker_2= L.marker([45.405, -75.695]).bindPopup('<h3>1790 place 2</h3><p>This site was a dust up with Little James Montferrant and his older brother. James won.<p>').openPopup();
 // Create a layer group to hold the tile map and the markers
 // https://leafletjs.com/examples/layers-control/
-var map1790LayerGroup = L.layerGroup([map1790, map1790_marker_1, map1790_marker_2]);
+var 1825mapLayerGroup = L.layerGroup([1825map, 1825map_marker_1, 1825map_marker_2]);
 
 
 // overlay maps - add the layer groups
 var overlayMaps = {
-    "Chaudière Falls 1926": Chaudière1926LayerGroup,
-    "Chaudière Falls 1825": map1790LayerGroup
+    "Chaudière Falls 1926": 1926mapLayerGroup,
+    "Chaudière Falls 1825": 1826mapLayerGroup
 }
 
 var myMap = L.map('mapid', {
