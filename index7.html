@@ -1,0 +1,116 @@
+<head>
+
+	<title>The Chaudière Falls Across Time</title>
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+	<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript"></script>
+
+		<style type="text/css">#mapid {
+	  width:960px;
+	  height:700px;
+	}
+	h1 {
+	  color: #AA0000;
+	  font-size: 24px;
+	  font-family: verdana;
+	}
+	h2 {
+	  color: #000000;
+	  font-size: 18px;
+	  font-family: verdana;
+	}
+	h3 {
+	  color: #000000;
+	  font-size: 12px;
+	  font-family: verdana;
+	}
+	p {
+	  color: #996600;
+	  font-family: verdana;
+	}
+	li {
+	  color: #996600;
+	  font-family: verdana;
+	}
+	th {
+	  text-align: right;
+	  font-family: verdana;
+	  color: #663300;
+	}
+	td {
+	  text-align: right;
+	  font-family: verdana;
+	  color: #663300;
+	}
+	</style>
+
+</head>
+
+<h2> The Chaudière Falls Across Time </h2>
+
+<p> This is my map of how the uses of the Chaudière Falls have changed over time </p>
+
+<body>
+<div id="mapid" style="width: 600px; height: 400px;"></div>
+<script type="text/javascript">
+
+// add tile maps for background
+// base map tiles:
+var basemap = L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+})
+// additional maps:
+var Chaudière1926 = L.tileLayer('https://mapwarper.net/maps/tile/60665/{z}/{x}/{y}.png')
+var Chaudière1825 = L.tileLayer('https://mapwarper.net/maps/tile/61013/{z}/{x}/{y}.png')
+
+
+// base map
+var baseMaps = {
+   "Base map": basemap
+};
+
+
+// markers
+// Chaudière1926 markers
+var marker1= L.marker([45.4205, -75.7213]).bindPopup('<h3>The Center</h3><p>This is the center of the map.<p>').openPopup();
+var marker2= L.marker([45.4, -75.7]).bindPopup('<h3>Another Marker</h3><p>This marker is a little further away.<p>').openPopup();
+// Create a layer group to hold the tile map and the markers
+// https://leafletjs.com/examples/layers-control/
+var Chaudière1926LayerGroup = L.layerGroup([Chaudière1926, marker1, marker2]);
+
+// Chaudière1825 markers
+// Good variable naming classification can make this code more readable
+var map1790_marker_1= L.marker([45.395, -75.695]).bindPopup('<h3>1790 place 1</h3><p>Philomon Wright broke his sleigh here.<p>').openPopup();
+var map1790_marker_2= L.marker([45.405, -75.695]).bindPopup('<h3>1790 place 2</h3><p>This site was a dust up with Little James Montferrant and his older brother. James won.<p>').openPopup();
+// Create a layer group to hold the tile map and the markers
+// https://leafletjs.com/examples/layers-control/
+var map1790LayerGroup = L.layerGroup([map1790, map1790_marker_1, map1790_marker_2]);
+
+
+// overlay maps - add the layer groups
+var overlayMaps = {
+    "Chaudière Falls 1926": Chaudière1926LayerGroup,
+    "Chaudière Falls 1825": map1790LayerGroup
+}
+
+var myMap = L.map('mapid', {
+  center: [45.4205, -75.7213],
+  zoom: 13,
+  layers:[basemap]
+});
+
+L.control.layers(baseMaps, overlayMaps).addTo(myMap);
+
+
+
+</script>
+
+<p> Last modified December 8, 2021 </p>
+
+</body>
+</html>
