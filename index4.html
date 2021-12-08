@@ -18,6 +18,7 @@
 <script type="text/javascript">
 
   var Chaudière1926 = L.tileLayer('https://mapwarper.net/maps/tile/60665/{z}/{x}/{y}.png'),
+	var Chaudière1825 = L.tilelayer('https://mapwarper.net/maps/tile/61013/{z}/{x}/{y}.png'),
     basemap = L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png')
 
     var baseMaps = {
@@ -26,6 +27,7 @@
 
   var overlayMaps = {
     "Chaudière Falls 1926": Chaudière1926
+		"Chaudière Falls 1825": Chaudière1825
   }
 
   var myMap = L.map('mapid', {
