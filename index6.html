@@ -7,13 +7,55 @@
 
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
 	<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script type="text/javascript"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript"></script>
 
-
+	<style type="text/css">#mapid {
+  width:960px;
+  height:700px;
+}
+h1 {
+  color: #AA0000;
+  font-size: 24px;
+  font-family: verdana;
+}
+h2 {
+  color: #000000;
+  font-size: 20px;
+  font-family: verdana;
+}
+h3 {
+  color: #000000;
+  font-size: 16px;
+  font-family: verdana;
+}
+p {
+  color: #996600;
+  font-family: verdana;
+}
+li {
+  color: #996600;
+  font-family: verdana;
+}
+th {
+  text-align: right;
+  font-family: verdana;
+  color: #663300;
+}
+td {
+  text-align: right;
+  font-family: verdana;
+  color: #663300;
+}
+</style>
 </head>
 
 <body>
+
+<h2> Chaudière Falls Across Time </h2>
+
+<p> This is my map of how the uses of the Chaudière Falls have changed over time </p>
+
 <div id="mapid" style="width: 600px; height: 400px;"></div>
 <script type="text/javascript">
 
@@ -46,6 +88,8 @@ var marker2= L.marker([45.4162, -75.7171]).addTo(myMap);
 L.control.layers(baseMaps, overlayMaps).addTo(myMap);
 
 </script>
+
+<p> Last modified December 7, 2021 </p>
 
 </body>
 </html>
