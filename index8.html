@@ -67,7 +67,8 @@ var basemap = L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 })
 // additional maps:
 var Chaudière1825 = L.tileLayer('https://mapwarper.net/maps/tile/61013/{z}/{x}/{y}.png')
-var Chaudière1912 = L.tileLayer ('https://mapwarper.net/maps/tile/60535/{z}/{x}/{y}.png')
+var Chaudière1852 = L.tileLayer('https://mapwarper.net/maps/tile/61032/{z}/{x}/{y}.png')
+var Chaudière1912 = L.tileLayer('https://mapwarper.net/maps/tile/60535/{z}/{x}/{y}.png')
 var Chaudière1926 = L.tileLayer('https://mapwarper.net/maps/tile/60665/{z}/{x}/{y}.png')
 
 
@@ -87,6 +88,13 @@ var Chaudière1825_marker_5= L.marker([45.4198, -75.7189]).bindPopup('<h3>Chaudi
 // Create a layer group to hold the tile map and the markers
 // https://leafletjs.com/examples/layers-control/
 var Chaudière1825LayerGroup = L.layerGroup([Chaudière1825, Chaudière1825_marker_1, Chaudière1825_marker_2, Chaudière1825_marker_3, Chaudière1825_marker_4, Chaudière1825_marker_5]);
+
+var Chaudière1852_marker_1= L.marker([45.4200, -75.7211]).bindPopup('<h3>The Chaudière Falls</h3><p>Lorem ipsum dolor<p>').openPopup();
+var Chaudière1852_marker_2= L.marker([45.4210, -75.7125]).bindPopup('<h3>Victoria Island</h3><p>Lorem ipsum dolor<p>').openPopup();
+var Chaudière1852_marker_3= L.marker([45.4191, -75.7179]).bindPopup('<h3>Albert Island</h3><p>Lorem ipsum dolor<p>').openPopup();
+var Chaudière1852_marker_4= L.marker([45.4198, -75.7189]).bindPopup('<h3>Chaudière Island</h3><p>Lorem ipsum dolor<p>').openPopup();
+var Chaudière1852LayerGroup = L.layerGroup([Chaudière1852, Chaudière1852_marker_1, Chaudière1852_marker_2, Chaudière1852_marker_3, Chaudière1852_marker_4]);
+
 
 // Chaudière1912 map markers
 // Good variable naming classification can make this code more readable
@@ -115,6 +123,7 @@ var Chaudière1926LayerGroup = L.layerGroup([Chaudière1926, Chaudière1926_mark
 // overlay maps - add the layer groups
 var overlayMaps = {
     "Chaudière Falls 1825": Chaudière1825LayerGroup,
+    "Chaudière Falls 1852": Chaudière1852LayerGroup,
     "Chaudière Falls 1912": Chaudière1912LayerGroup,
     "Chaudière Falls 1926": Chaudière1926LayerGroup
 }
@@ -133,7 +142,7 @@ L.control.layers(baseMaps, overlayMaps).addTo(myMap);
 
 <p> Created by Samuel Mickelson </p>
 
-<p> Last modified December 8, 2021 </p>
+<p> Last modified December 9, 2021 </p>
 
 </body>
 </html>
