@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<title>The Chaudière Falls Historical Web Map</title>
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+	<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript"></script>
+
+    <style type="text/css">#mapid {
+    width:960px;
+    height:700px;
+    }
+    h1 {
+    color: #191970;
+    font-size: 24px;
+    font-family: verdana;
+    }
+    h2 {
+    color: #191970;
+    font-size: 18px;
+    font-family: verdana;
+    }
+    h3 {
+    color: #191970;
+    font-size: 16px;
+    font-family: verdana;
+    }
+    p {
+    color: #2F4F4F;
+    font-family: verdana;
+		fon-size: 14px;
+    }
+    li {
+    color: #2F4F4F;
+    font-family: verdana;
+    }
+    th {
+    text-align: right;
+    font-family: verdana;
+    color: #2F4F4F;
+    }
+    td {
+    text-align: right;
+    font-family: verdana;
+    color: #2F4F4F;
+    }
+    </style>
+
+</head>
+
+<body>
+
+<header>
+
+<h3>The Chaudière Falls Historical Web Map</h3>
+
+<p>Click on the 'layer' icon in the upper righthand corner of the web map to turn on and toggle between different historic maps of the falls.</p>
+<p> And please come back again soon for more historic maps and more descriptive information related to each geographic point on the maps.</p>
+
+</header>
+
+<div id="mapid" style="width: 600px; height: 400px;"></div>
+<script type="text/javascript">
+
+// add tile maps for background
+// base map tiles:
+var basemap = L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+})
+// additional maps:
+var Chaudière1825 = L.tileLayer('https://mapwarper.net/maps/tile/61013/{z}/{x}/{y}.png')
+var Chaudière1852 = L.tileLayer('https://mapwarper.net/maps/tile/61032/{z}/{x}/{y}.png')
+var Chaudière1857 = L.tileLayer ('https://mapwarper.net/maps/tile/61034/{z}/{x}/{y}.png')
+var Chaudière1912 = L.tileLayer('https://mapwarper.net/maps/tile/60535/{z}/{x}/{y}.png')
+var Chaudière1926 = L.tileLayer('https://mapwarper.net/maps/tile/60665/{z}/{x}/{y}.png')
+var Chaudière2010 = L.tileLayer('https://mapwarper.net/maps/tile/61038/{z}/{x}/{y}.png')
+
+
+// base map
+var baseMaps = {
+   "Base map": basemap
+};
+
+// markers
+// Chaudière1825 map markers
+// Good variable naming classification can make this code more readable
+var Chaudière1825_marker_1= L.marker([45.4200, -75.7211]).bindPopup('<h3>The Chaudière Falls</h3><p>Lorem ipsum dolor<p>').openPopup();
+var Chaudière1825_marker_2= L.marker([45.4210, -75.7125]).bindPopup('<h3>Victoria Island</h3><p>Lorem ipsum dolor<p>').openPopup();
+var Chaudière1825_marker_3= L.marker([45.4162, -75.7171]).bindPopup('<h3>LeBreton Flats Park</h3><p>Lorem ipsum dolor<p>').openPopup();
+var Chaudière1825_marker_4= L.marker([45.4191, -75.7179]).bindPopup('<h3>Albert Island</h3><p>Lorem ipsum dolor<p>').openPopup();
+var Chaudière1825_marker_5= L.marker([45.4198, -75.7189]).bindPopup('<h3>Chaudière Island</h3><p>Lorem ipsum dolor<p>').openPopup();
+// Create a layer group to hold the tile map and the markers
+// https://leafletjs.com/examples/layers-control/
+var Chaudière1825LayerGroup = L.layerGroup([Chaudière1825, Chaudière1825_marker_1, Chaudière1825_marker_2, Chaudière1825_marker_3, Chaudière1825_marker_4, Chaudière1825_marker_5]);
+
+var Chaudière1852_marker_1= L.marker([45.4200, -75.7211]).bindPopup('<h3>The Chaudière Falls</h3><p>Lorem ipsum dolor<p>').openPopup();
+var Chaudière1852_marker_2= L.marker([45.4210, -75.7125]).bindPopup('<h3>Victoria Island</h3><p>Lorem ipsum dolor<p>').openPopup();
+var Chaudière1852_marker_3= L.marker([45.4191, -75.7179]).bindPopup('<h3>Albert Island</h3><p>Lorem ipsum dolor<p>').openPopup();
+var Chaudière1852_marker_4= L.marker([45.4198, -75.7189]).bindPopup('<h3>Chaudière Island</h3><p>Lorem ipsum dolor<p>').openPopup();
+var Chaudière1852LayerGroup = L.layerGroup([Chaudière1852, Chaudière1852_marker_1, Chaudière1852_marker_2, Chaudière1852_marker_3, Chaudière1852_marker_4]);
+
+var Chaudière1857_marker_1= L.marker([45.4200, -75.7211]).bindPopup('<h3>The Chaudière Falls</h3><p>Lorem ipsum dolor<p>').openPopup();
+var Chaudière1857_marker_2= L.marker([45.4210, -75.7125]).bindPopup('<h3>Victoria Island</h3><p>Lorem ipsum dolor<p>').openPopup();
+var Chaudière1857_marker_3= L.marker([45.4191, -75.7179]).bindPopup('<h3>Albert Island</h3><p>Lorem ipsum dolor<p>').openPopup();
+var Chaudière1857_marker_4= L.marker([45.4198, -75.7189]).bindPopup('<h3>Chaudière Island</h3><p>Lorem ipsum dolor<p>').openPopup();
+var Chaudière1857LayerGroup = L.layerGroup([Chaudière1857, Chaudière1857_marker_1, Chaudière1857_marker_2, Chaudière1857_marker_3, Chaudière1857_marker_4]);
+
+
+// Chaudière1912 map markers
+// Good variable naming classification can make this code more readable
+var Chaudière1912_marker_1= L.marker([45.4200, -75.7211]).bindPopup('<h3>The Chaudière Falls</h3><p>Lorem ipsum dolor<p>').openPopup();
+var Chaudière1912_marker_2= L.marker([45.4205, -75.7213]).bindPopup('<h3>Chaudière Falls Ring Dam</h3><p>Lorem ipsum dolor<p>').openPopup();
+var Chaudière1912_marker_3= L.marker([45.4162, -75.7171]).bindPopup('<h3>LeBreton Flats Park</h3><p>Lorem ipsum dolor<p>').openPopup();
+var Chaudière1912_marker_4= L.marker([45.4210, -75.7125]).bindPopup('<h3>Victoria Island</h3><p>Lorem ipsum dolor<p>').openPopup();
+var Chaudière1912_marker_5= L.marker([45.4198, -75.7189]).bindPopup('<h3>Chaudière Island</h3><p>Lorem ipsum dolor<p>').openPopup();
+var Chaudière1912_marker_6= L.marker([45.4191, -75.7179]).bindPopup('<h3>Albert Island</h3><p>Lorem ipsum dolor<p>').openPopup();
+var Chaudière1912_marker_7= L.marker([45.4210, -75.7182]).bindPopup('<h3>Chaudière Bridge</h3><p>Lorem ipsum dolor<p>').openPopup();
+var Chaudière1912_marker_8= L.marker([45.4238,-75.7261]).bindPopup('<h3>Parc des Portageurs</h3><p>Lorem ipsum dolor<p>').openPopup();
+var Chaudière1912_marker_9= L.marker([45.4306, -75.7073]).bindPopup('<h3>Canadian Museum of History</h3><p>Lorem ipsum dolor<p>').openPopup();
+var Chaudière1912_marker_10= L.marker([45.4343, -75.7079]).bindPopup('<h3>Jacques-Cartier Park</h3><p>Lorem ipsum dolor<p>').openPopup();
+// Create a layer group to hold the tile map and the markers
+// https://leafletjs.com/examples/layers-control/
+var Chaudière1912LayerGroup = L.layerGroup([Chaudière1912, Chaudière1912_marker_1, Chaudière1912_marker_2, Chaudière1912_marker_3, Chaudière1912_marker_4, Chaudière1912_marker_5, Chaudière1912_marker_6, Chaudière1912_marker_7, Chaudière1912_marker_8, Chaudière1912_marker_9, Chaudière1912_marker_10]);
+
+// Chaudière1926 markers
+var Chaudière1926_marker_1= L.marker([45.4200, -75.7211]).bindPopup('<h3>The Chaudière Falls</h3><p>Lorem ipsum dolor<p>').openPopup();
+var Chaudière1926_marker_2= L.marker([45.4205, -75.7213]).bindPopup('<h3>Chaudière Falls Ring Dam</h3><p>Lorem ipsum dolor<p>').openPopup();
+// Create a layer group to hold the tile map and the markers
+// https://leafletjs.com/examples/layers-control/
+var Chaudière1926LayerGroup = L.layerGroup([Chaudière1926, Chaudière1926_marker_1, Chaudière1926_marker_2]);
+
+var Chaudière2010_marker_1= L.marker([45.4200, -75.7211]).bindPopup('<h3>The Chaudière Falls</h3><p>Lorem ipsum dolor<p>').openPopup();
+var Chaudière2010_marker_2= L.marker([45.4205, -75.7213]).bindPopup('<h3>Chaudière Falls Ring Dam</h3><p>Lorem ipsum dolor<p>').openPopup();
+var Chaudière2010_marker_3= L.marker([45.4210, -75.7125]).bindPopup('<h3>Victoria Island</h3><p>Lorem ipsum dolor<p>').openPopup();
+var Chaudière2010_marker_4= L.marker([45.4198, -75.7189]).bindPopup('<h3>Chaudière Island</h3><p>Lorem ipsum dolor<p>').openPopup();
+var Chaudière2010_marker_5= L.marker([45.4191, -75.7179]).bindPopup('<h3>Albert Island</h3><p>Lorem ipsum dolor<p>').openPopup();
+var Chaudière2010_marker_6= L.marker([45.4210, -75.7182]).bindPopup('<h3>Chaudière Bridge</h3><p>Lorem ipsum dolor<p>').openPopup();
+var Chaudière2010_marker_7= L.marker([45.4306, -75.7073]).bindPopup('<h3>Canadian Museum of History</h3><p>Lorem ipsum dolor<p>').openPopup();
+var Chaudière2010_marker_8= L.marker([45.4343, -75.7079]).bindPopup('<h3>Jacques-Cartier Park</h3><p>Lorem ipsum dolor<p>').openPopup();
+// Create a layer group to hold the tile map and the markers
+// https://leafletjs.com/examples/layers-control/
+var Chaudière2010LayerGroup = L.layerGroup([Chaudière2010, Chaudière2010_marker_1, Chaudière2010_marker_2, Chaudière2010_marker_3, Chaudière2010_marker_4, Chaudière2010_marker_5, Chaudière2010_marker_6, Chaudière2010_marker_7, Chaudière2010_marker_8]);
+
+
+// overlay maps - add the layer groups
+var overlayMaps = {
+    "Chaudière Falls 1825": Chaudière1825LayerGroup,
+    "Chaudière Falls 1852": Chaudière1852LayerGroup,
+    "Chaudière Falls 1857": Chaudière1857LayerGroup,
+    "Chaudière Falls 1912": Chaudière1912LayerGroup,
+    "Chaudière Falls 1926": Chaudière1926LayerGroup,
+    "Chaudière Falls Master Plan 2010": Chaudière2010LayerGroup
+
+}
+
+var myMap = L.map('mapid', {
+  center: [45.4205, -75.7213],
+  zoom: 13,
+  layers:[basemap]
+});
+
+L.control.layers(baseMaps, overlayMaps).addTo(myMap);
+
+
+
+</script>
+
+</body>
+
+<footer>
+
+<p><small>Created by Samuel Mickelson</small></p>
+<p><small>Last modified December 10, 2021</small></p>
+<p><small>Thank you to Dr. Shawn Graham and Jeff Blackadar for your assistance.</small></p>
+
+</footer>
+
+</html>
