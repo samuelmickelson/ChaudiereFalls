@@ -110,23 +110,6 @@ var Chaudière1857_marker_3= L.marker([45.4191, -75.7179]).bindPopup('<h3>Albert
 var Chaudière1857_marker_4= L.marker([45.4198, -75.7189]).bindPopup('<h3>Chaudière Island</h3><p>Lorem ipsum dolor<p>').openPopup();
 var Chaudière1857LayerGroup = L.layerGroup([Chaudière1857, Chaudière1857_marker_1, Chaudière1857_marker_2, Chaudière1857_marker_3, Chaudière1857_marker_4]);
 
-
-// Chaudière1912 map markers
-// Good variable naming classification can make this code more readable
-var Chaudière1912_marker_1= L.marker([45.4200, -75.7211]).bindPopup('<h3>The Chaudière Falls</h3><p>Lorem ipsum dolor<p>').openPopup();
-var Chaudière1912_marker_2= L.marker([45.4205, -75.7213]).bindPopup('<h3>Chaudière Falls Ring Dam</h3><p>Lorem ipsum dolor<p>').openPopup();
-var Chaudière1912_marker_3= L.marker([45.4162, -75.7171]).bindPopup('<h3>LeBreton Flats Park</h3><p>Lorem ipsum dolor<p>').openPopup();
-var Chaudière1912_marker_4= L.marker([45.4210, -75.7125]).bindPopup('<h3>Victoria Island</h3><p>Lorem ipsum dolor<p>').openPopup();
-var Chaudière1912_marker_5= L.marker([45.4198, -75.7189]).bindPopup('<h3>Chaudière Island</h3><p>Lorem ipsum dolor<p>').openPopup();
-var Chaudière1912_marker_6= L.marker([45.4191, -75.7179]).bindPopup('<h3>Albert Island</h3><p>Lorem ipsum dolor<p>').openPopup();
-var Chaudière1912_marker_7= L.marker([45.4210, -75.7182]).bindPopup('<h3>Chaudière Bridge</h3><p>Lorem ipsum dolor<p>').openPopup();
-var Chaudière1912_marker_8= L.marker([45.4238,-75.7261]).bindPopup('<h3>Parc des Portageurs</h3><p>Lorem ipsum dolor<p>').openPopup();
-var Chaudière1912_marker_9= L.marker([45.4306, -75.7073]).bindPopup('<h3>Canadian Museum of History</h3><p>Lorem ipsum dolor<p>').openPopup();
-var Chaudière1912_marker_10= L.marker([45.4343, -75.7079]).bindPopup('<h3>Jacques-Cartier Park</h3><p>Lorem ipsum dolor<p>').openPopup();
-// Create a layer group to hold the tile map and the markers
-// https://leafletjs.com/examples/layers-control/
-var Chaudière1912LayerGroup = L.layerGroup([Chaudière1912, Chaudière1912_marker_1, Chaudière1912_marker_2, Chaudière1912_marker_3, Chaudière1912_marker_4, Chaudière1912_marker_5, Chaudière1912_marker_6, Chaudière1912_marker_7, Chaudière1912_marker_8, Chaudière1912_marker_9, Chaudière1912_marker_10]);
-
 // Create a layer group to hold the tile map and the markers
 // https://leafletjs.com/examples/layers-control/
 
@@ -135,10 +118,9 @@ var Chaudière1912LayerGroup = L.layerGroup([Chaudière1912, Chaudière1912_mark
 // overlay maps - add the layer groups
 var overlayMaps = {
     "Chaudière Falls 1825": Chaudière1825LayerGroup,
-		"Chaudière Falls 1825": Chaudière1850LayerGroup,
+		"Chaudière Falls 1850": Chaudière1850LayerGroup,
     "Chaudière Falls 1852": Chaudière1852LayerGroup,
     "Chaudière Falls 1857": Chaudière1857LayerGroup,
-    "Chaudière Falls 1912": Chaudière1912LayerGroup,
 }
 var myMap = L.map('mapid', {
   center: [45.4205, -75.7213],
