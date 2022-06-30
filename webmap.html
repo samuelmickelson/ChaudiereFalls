@@ -81,6 +81,7 @@ var Chaudière1829 = L.tileLayer('https://mapwarper.net/maps/tile/66210/{z}/{x}/
 var Chaudière1850 = L.tileLayer('https://mapwarper.net/maps/tile/66191/{z}/{x}/{y}.png')
 var Chaudière1852 = L.tileLayer('https://mapwarper.net/maps/tile/61032/{z}/{x}/{y}.png')
 var Chaudière1857 = L.tileLayer ('https://mapwarper.net/maps/tile/61034/{z}/{x}/{y}.png')
+var Chaudière1926 = L.tileLayer ('https://mapwarper.net/maps/tile/66211/{z}/{x}/{y}.png')
 
 
 
@@ -148,6 +149,13 @@ var Chaudière1857_marker_4= L.marker([45.4198, -75.7189]).bindPopup('<h3>Chaudi
 
 var Chaudière1857LayerGroup = L.layerGroup([Chaudière1857, Chaudière1857_marker_1, Chaudière1857_marker_2, Chaudière1857_marker_3, Chaudière1857_marker_4]);
 
+var Chaudière1926_marker_1= L.marker([45.4200, -75.7211]).bindPopup('<h3>The Chaudière Falls</h3><p>Lorem ipsum dolor<p>').openPopup();
+var Chaudière1926_marker_2= L.marker([45.4210, -75.7125]).bindPopup('<h3>Victoria Island</h3><p>Lorem ipsum dolor<p>').openPopup();
+var Chaudière1926_marker_3= L.marker([45.4191, -75.7179]).bindPopup('<h3>Albert Island</h3><p>Lorem ipsum dolor<p>').openPopup();
+var Chaudière1926_marker_4= L.marker([45.4198, -75.7189]).bindPopup('<h3>Chaudière Island</h3><p>Lorem ipsum dolor<p>').openPopup();
+
+var Chaudière1926LayerGroup = L.layerGroup([Chaudière1926, Chaudière1926_marker_1, Chaudière1926_marker_2, Chaudière1926_marker_3, Chaudière1926_marker_4]);
+
 // overlay maps - add the layer groups
 var overlayMaps = {
 	  "Chaudière Falls 1801": Chaudière1801LayerGroup,
@@ -156,7 +164,8 @@ var overlayMaps = {
 		"Chaudière Falls 1829": Chaudière1829LayerGroup,
 		"Chaudière Falls 1850": Chaudière1850LayerGroup,
     "Chaudière Falls 1852": Chaudière1852LayerGroup,
-    "Chaudière Falls 1857": Chaudière1857LayerGroup
+    "Chaudière Falls 1857": Chaudière1857LayerGroup,
+		"Chaudière Falls 1926": Chaudière1926LayerGroup
 }
 var myMap = L.map('mapid', {
   center: [45.4205, -75.7213],
