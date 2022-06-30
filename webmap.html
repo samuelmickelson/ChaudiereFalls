@@ -74,6 +74,7 @@ var basemap = L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 })
 // additional maps:
+var Chaudière1819 = L.tileLayer('https://mapwarper.net/maps/tile/66204/{z}/{x}/{y}.png')
 var Chaudière1825 = L.tileLayer('https://mapwarper.net/maps/tile/61013/{z}/{x}/{y}.png')
 var Chaudière1850 = L.tileLayer('https://mapwarper.net/maps/tile/66191/{z}/{x}/{y}.png')
 var Chaudière1852 = L.tileLayer('https://mapwarper.net/maps/tile/61032/{z}/{x}/{y}.png')
@@ -87,15 +88,24 @@ var baseMaps = {
 };
 
 // markers
-// Chaudière1825 map markers
+// Chaudière1819 map markers
 // Good variable naming classification can make this code more readable
+var Chaudière1819_marker_1= L.marker([45.4200, -75.7211]).bindPopup('<h3>The Chaudière Falls</h3><p>Lorem ipsum dolor<p>').openPopup();
+var Chaudière1819_marker_2= L.marker([45.4210, -75.7125]).bindPopup('<h3>Victoria Island</h3><p>Lorem ipsum dolor<p>').openPopup();
+var Chaudière1819_marker_3= L.marker([45.4162, -75.7171]).bindPopup('<h3>LeBreton Flats Park</h3><p>Lorem ipsum dolor<p>').openPopup();
+var Chaudière1819_marker_4= L.marker([45.4191, -75.7179]).bindPopup('<h3>Albert Island</h3><p>Lorem ipsum dolor<p>').openPopup();
+var Chaudière1819_marker_5= L.marker([45.4198, -75.7189]).bindPopup('<h3>Chaudière Island</h3><p>Lorem ipsum dolor<p>').openPopup();
+
+// Create a layer group to hold the tile map and the markers
+// https://leafletjs.com/examples/layers-control/
+var Chaudière1819LayerGroup = L.layerGroup([Chaudière1819, Chaudière1819_marker_1, Chaudière1819_marker_2, Chaudière1819_marker_3, Chaudière1819_marker_4, Chaudière1819_marker_5]);
+
 var Chaudière1825_marker_1= L.marker([45.4200, -75.7211]).bindPopup('<h3>The Chaudière Falls</h3><p>Lorem ipsum dolor<p>').openPopup();
 var Chaudière1825_marker_2= L.marker([45.4210, -75.7125]).bindPopup('<h3>Victoria Island</h3><p>Lorem ipsum dolor<p>').openPopup();
 var Chaudière1825_marker_3= L.marker([45.4162, -75.7171]).bindPopup('<h3>LeBreton Flats Park</h3><p>Lorem ipsum dolor<p>').openPopup();
 var Chaudière1825_marker_4= L.marker([45.4191, -75.7179]).bindPopup('<h3>Albert Island</h3><p>Lorem ipsum dolor<p>').openPopup();
 var Chaudière1825_marker_5= L.marker([45.4198, -75.7189]).bindPopup('<h3>Chaudière Island</h3><p>Lorem ipsum dolor<p>').openPopup();
-// Create a layer group to hold the tile map and the markers
-// https://leafletjs.com/examples/layers-control/
+
 var Chaudière1825LayerGroup = L.layerGroup([Chaudière1825, Chaudière1825_marker_1, Chaudière1825_marker_2, Chaudière1825_marker_3, Chaudière1825_marker_4, Chaudière1825_marker_5]);
 
 var Chaudière1850_marker_1= L.marker([45.4200, -75.7211]).bindPopup('<h3>The Chaudière Falls</h3><p>Lorem ipsum dolor<p>').openPopup();
@@ -126,6 +136,7 @@ var Chaudière1857LayerGroup = L.layerGroup([Chaudière1857, Chaudière1857_mark
 
 // overlay maps - add the layer groups
 var overlayMaps = {
+    "Chaudière Falls 1819": Chaudière1819LayerGroup,
     "Chaudière Falls 1825": Chaudière1825LayerGroup,
 		"Chaudière Falls 1850": Chaudière1850LayerGroup,
     "Chaudière Falls 1852": Chaudière1852LayerGroup,
